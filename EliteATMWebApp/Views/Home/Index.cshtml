@@ -1,7 +1,7 @@
 ﻿@using EliteATMWebApp.Models;
 @model EliteATMWebApp.Models.User
 @{
-    
+
     ViewData["Title"] = "Home Page";
     string name;
     if (UserTracker.User != null) 
@@ -9,16 +9,12 @@
         User user = UserTracker.User;
         name = user.FirstName + " " + user.LastName;
     }
-    else 
-    { 
-        name = "huh"; 
-    }
     
 }
 
     <div class="p-5 container-fluid bg-light rounded-5">
       <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Elite ATM Online Platform</h1>
+        <h1 class="display-5 fw-bold fade-in-right">Elite ATM Online Banking Platform </h1>
         <p class="col-md-12 fs-4">Welcome to online platfor for the Elite ATM Banking Service, now you can have 24/7 access to your funds for withdrawl or deposit straight from the web!</p>
         <button class="btn btn-primary btn-lg" type="button">Go to Account</button>
       </div>

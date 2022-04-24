@@ -14,12 +14,12 @@
     }
 
 }
-@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+@using (Html.BeginForm("Index", "Home"))
 {
     <div class="container" style="display: flex; justify-content:center; align-items: center; height: 500px;">
         
     <div class="col-md-4 border border-dark rounded" style="padding: 10px 20px;">
-        <h3 class="fs-3 text-center text-light rounded" style="margin-bottom: 30px; height: 42px;background-color: #0B1340;">Log-In To Your User Account</h3>
+        <h3 class="fs-3 text-center text-light rounded" style="margin-bottom: 30px; height: 40px;background-color: #0B1340;">Log-In</h3>
             <form>
                 <div class="form-group">
                     <label asp-for="Email" class="control-label"></label>
@@ -29,7 +29,7 @@
                 <br>
                 <div class="form-group">
                     <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" class="form-control" />
+                    <input asp-for="Password" type="password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <p class="bg-danger text-center" style="margin-top: 10px">@fl</p>
