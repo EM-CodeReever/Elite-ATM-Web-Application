@@ -4,12 +4,12 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="text-center">User Profile</h1>
 
-<div>
-    <h4>User</h4>
+<div class="container" style="max-width: 500px;">
+    <h4>Details</h4>
     <hr />
-    <dl class="row">
+    <dl class="container border border-dark rounded" style="padding: 10px 20px;">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -35,8 +35,6 @@
             @Html.DisplayFor(model => model.Password)
         </dd>
     </dl>
+    <input onclick="location.href='@Url.Action("Edit", "Users", new { id = UserTracker.User?.Id})'" type="button" value="Edit" class="btn btn-primary" />
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
