@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Elite ATM Banking</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EliteATMWebApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0B1340;">
+          <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Elite ATM Banking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
+                </li>
+                <li class="nav-item" style="@(UserTracker.User == null ? "display: none" : "display: block")">
+                  <a class="nav-link" asp-controller="Users" asp-action="Index">My Account</a>
+                </li>
+              </ul>
+              @*top-right navbar text if user isnt logged in*@
+              <div class="navbar-text" style="@(UserTracker.User != null ? "display: none" : String.Empty)">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" asp-controller="Home" asp-action="Login">Log In</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" asp-controller="Users" asp-action="Create">Sign Up</a>
+                </li>
+              </ul>
+              </div>
+              @*top-right navbar text if user IS logged in*@
+              <div class="navbar-text" style="@(UserTracker.User == null ? "display: none" : "display: block")">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" asp-controller="Users" asp-action="Details" asp-route-id="@(UserTracker.User?.Id)">Signed In As: @(UserTracker.User?.FirstName + " " + UserTracker.User?.LastName)</a>
+                </li>
+                <li class="nav-item badge bg-danger">
+                  <a class="nav-link" asp-controller="Home" asp-action="LogOut">Log Out</a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <div class="container-fluid" style="padding:0;">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Elite ATM Banking - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

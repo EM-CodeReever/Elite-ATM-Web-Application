@@ -1,0 +1,111 @@
+﻿@using EliteATMWebApp.Models;
+@model EliteATMWebApp.Models.User
+@{
+    
+    ViewData["Title"] = "Home Page";
+    string name;
+    if (UserTracker.User != null) 
+    { 
+        User user = UserTracker.User;
+        name = user.FirstName + " " + user.LastName;
+    }
+    else 
+    { 
+        name = "huh"; 
+    }
+    
+}
+
+    <div class="p-5 container-fluid bg-light rounded-5">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Elite ATM Online Platform</h1>
+        <p class="col-md-12 fs-4">Welcome to online platfor for the Elite ATM Banking Service, now you can have 24/7 access to your funds for withdrawl or deposit straight from the web!</p>
+        <button class="btn btn-primary btn-lg" type="button">Go to Account</button>
+      </div>
+    </div>
+    <div class="container-xl" style="padding: 20px;">
+        <h1 class="display-3 fs-3 fw-bold">The Tile of this Div</h1>
+        <p class="col-md-12 fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <h1 class="display-3 fs-3 fw-bold">Frequently Asked Questions</h1>
+        <div class="accordion" id="accordionFlush">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                How much does Online Banking With Elite ATM Cost?
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush">
+              <div class="accordion-body">Its completely free to open an account until we start to extort- I mean charge you for withdrawls</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                Is Online Banking With Elite ATM Safe and Secure?
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlush">
+              <div class="accordion-body">lol idk</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                Is It Possible To Check My Account Information Online Without Signin Up For An Account?
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush">
+              <div class="accordion-body"><s>No Dummy</s> No. For security reasons, you must enroll in Online Banking to access your account information online.</div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                How Do I Open a Banking Account with Elite ATM Online Banking?
+              </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlush">
+              <div class="accordion-body">
+                  <ul>
+                    <li>First create a user account on our website or desktop application</li>
+                    <li>Second, once you've successfully created an account, navigate to the Accounts tab in the navbar</li>
+                    <li>Third, choose an account type and enter the relevant details </li>
+                    <li>Click Open Account and thats it! you can start making Deposits and Withdrawls to your new account</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+            <br>
+            <h1 class="display-3 fs-3 fw-bold text-center">Getting Started</h1>
+            <p class="col-md-12 fs-4 text-center">Ready to start banking with us? See our various options below and choose one thats right for you</p>
+        </div>
+      </div>
+
+    <div class="container-xl" style="display:flex; justify-content:space-evenly; padding: 20px;">
+        <div class="card">
+          <img src="~/Images/Business.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title bg-danger">Business</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Open</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="~/Images/personal.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title bg-info">Chequings</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Open</a>
+          </div>
+        </div>
+         <div class="card">
+          <img src="~/Images/savings.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title bg-warning">Savings</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Open</a>
+          </div>
+        </div>
+    </div>
