@@ -23,7 +23,14 @@ namespace EliteATMWebApp.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            if(UserTracker.User == null || UserTracker.User.Id != 1)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return View(await _context.Users.ToListAsync());
+            }
         }
 
         // GET: Users/Details/5
@@ -113,7 +120,7 @@ namespace EliteATMWebApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details),new {id = user.Id});
             }
             return View(user);
         }

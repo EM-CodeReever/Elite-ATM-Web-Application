@@ -15,6 +15,7 @@ namespace EliteATMWebApp.Controllers
             _logger = logger;
             _EliteATMDBContext = context;
         }
+        
         public IActionResult Index([Bind("Email,Password")] User? user)
         {
             if(user?.Email == null || user.Password == null)
@@ -33,6 +34,12 @@ namespace EliteATMWebApp.Controllers
             
             
         }
+        [ActionName("index-contact")]
+        public IActionResult Index([Bind("Email,Subject,Comments")] Contact c)
+        {
+            ViewBag.Contact = c;
+            return View("Index");
+        }
         public IActionResult Privacy()
         {
             return View();
@@ -47,7 +54,10 @@ namespace EliteATMWebApp.Controllers
             UserTracker.User = null;
             return RedirectToAction(nameof(HomeController.Index));
         }
-
+        public IActionResult Contact()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
