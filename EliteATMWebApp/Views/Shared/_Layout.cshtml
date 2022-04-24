@@ -25,7 +25,10 @@
                   <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
+                  <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                </li>
+                <li class="nav-item" style="@(UserTracker.User == null || UserTracker.User.Id != 1 ? "display: none" : "display: block")">
+                  <a class="nav-link" asp-controller="Users" asp-action="Index">Administration</a>
                 </li>
                 <li class="nav-item" style="@(UserTracker.User == null ? "display: none" : "display: block")">
                   <a class="nav-link" asp-controller="Users" asp-action="Index">My Account</a>
