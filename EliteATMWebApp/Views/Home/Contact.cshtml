@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model EliteATMWebApp.Models.Contact
+@{
+     ViewData["Title"] = "Contact Us";
+}
+@using (Html.BeginForm("index-contact", "Home"))
+{
+    <div class="container bg-light rounded" style="padding: 20px; margin-top: 50px;">
+        <h3>Send us your feedback!</h3>
+        <form>
+         <div class="mb-3">
+          <label asp-for="Email" class="form-label">Email address</label>
+          <input asp-for="Email" type="email" class="form-control" id="formEmail" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label asp-for="Subject" class="form-label">Subject</label>
+          <input asp-for="Subject" type="text" class="form-control" id="formSubject">
+        </div>
+        <div class="mb-3">
+          <label asp-for="Comments" class="form-label">Comments</label>
+          <textarea asp-for="Comments" class="form-control" id="formComments" rows="5"></textarea>
+        </div>
+        <div class="mb-3" style="display: flex; justify-content:right;">
+        <input type="submit" value="Send" class="btn btn-primary">
+        </div>
+        </form>
+    </div>
+}
