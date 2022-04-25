@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using EliteATMWebApp.Data;
+using System.Net.Mail;
+using System.Net;
 
 namespace EliteATMWebApp.Controllers
 {
@@ -34,12 +36,6 @@ namespace EliteATMWebApp.Controllers
             
             
         }
-        [ActionName("index-contact")]
-        public IActionResult Index([Bind("Email,Subject,Comments")] Contact c)
-        {
-            ViewBag.Contact = c;
-            return View("Index");
-        }
         public IActionResult Privacy()
         {
             return View();
@@ -54,9 +50,49 @@ namespace EliteATMWebApp.Controllers
             UserTracker.User = null;
             return RedirectToAction(nameof(HomeController.Index));
         }
+        
         public IActionResult Contact()
         {
             return View();
+        }
+
+        [ActionName("contact-sent")]
+        public IActionResult Contact([Bind("FirstName,LastName,Email,Subject,Comments")] Contact c)
+        {
+            if (ModelState.IsValid)
+            {
+                var senderEmail = new MailAddress("etileatmservice@gmail.com", "Elite ATM Email Service");
+                var receiverEmail = new MailAddress("elliotmorrison58@gmail.com", "Receiver");
+                var password = "\\9?^TDe{\\2";
+                var sub = $"Feedback: {c.Subject}";
+                var body = $"<p><b>Name:</b> {c.getFullName()}</p>" +
+                    $"<p><b>Email:</b> {c.Email}</p>" +
+                    $"<p><b>Subject:</b> {c.Subject}</p>" +
+                    $"<p><br><b>Body:</b> {c.Comments}</p>";
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = senderEmail;
+                    mail.To.Add(receiverEmail);
+                    mail.Subject = sub;
+                    mail.Body = body;
+                    mail.IsBodyHtml = true;
+                    //mail.Attachments.Add(new Attachment("wwwroot\\Images\\Business.jpg"));
+                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                    {
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential(senderEmail.Address, password);
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                    }
+                }
+                //ModelState.Clear();
+                ViewBag.FeedBackSent = true;
+                return View("Contact");
+            }
+            else
+            {
+                return Error();
+            }
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
