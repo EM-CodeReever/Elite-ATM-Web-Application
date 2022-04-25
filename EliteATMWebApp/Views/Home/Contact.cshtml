@@ -3,15 +3,32 @@
 *@
 @model EliteATMWebApp.Models.Contact
 @{
-     ViewData["Title"] = "Contact Us";
+    ViewData["Title"] = "Contact Us";
+    bool fbs;
+    if (ViewBag.FeedBackSent == null)
+    {
+        fbs = false;
+    }
+    else
+    {
+        fbs = true;
+    }
 }
-@using (Html.BeginForm("index-contact", "Home"))
+@using (Html.BeginForm("contact-sent", "Home"))
 {
-    <div class="container bg-light rounded" style="padding: 20px; margin-top: 50px;">
-        <h3>Send us your feedback!</h3>
+    <div class="container bg-light rounded" style="padding: 20px; margin-top: 50px; @(fbs ? "display: none;" : "display: block;")">
+        <h3 class="text-center">Send us your feedback!</h3>
         <form>
+        <div class="mb-3">
+          <label asp-for="FirstName" class="form-label">First Name</label>
+          <input asp-for="FirstName" type="text" class="form-control" id="formFirstName">
+        </div>
+        <div class="mb-3">
+          <label asp-for="LastName" class="form-label">Last Name</label>
+          <input asp-for="LastName" type="text" class="form-control" id="formLastName">
+        </div>
          <div class="mb-3">
-          <label asp-for="Email" class="form-label">Email address</label>
+          <label asp-for="Email" class="form-label">Email Address</label>
           <input asp-for="Email" type="email" class="form-control" id="formEmail" placeholder="name@example.com">
         </div>
         <div class="mb-3">
@@ -26,5 +43,9 @@
         <input type="submit" value="Send" class="btn btn-primary">
         </div>
         </form>
+    </div>
+    <div class="container bg-light rounded text-center" style="padding: 20px; margin-top: 50px; @(fbs ? "display: block;" : "display: none;")">
+         <h3>Feedback Sent SuccessFully!</h3>
+         <input type="submit" value="Return to Home Page" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'" />
     </div>
 }
