@@ -1,7 +1,12 @@
 html {
   font-size: 14px;
 }
-
+.homeBG {
+    background-image: url(../Images/Home.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -19,4 +24,10 @@ body {
 .card{
     width:100%;
     margin: 0 10px 0 10px;
+}
+
+@media (max-width: 1230px) {
+    .homeBG {
+        background-size: cover;
+    }
 }
