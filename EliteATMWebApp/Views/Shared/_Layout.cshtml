@@ -31,7 +31,7 @@
                   <a class="nav-link" asp-controller="Users" asp-action="Index">Administration</a>
                 </li>
                 <li class="nav-item" style="@(UserTracker.User == null ? "display: none" : "display: block")">
-                  <a class="nav-link" asp-controller="Users" asp-action="Index">My Account</a>
+                  <a class="nav-link" asp-controller="Accounts" asp-action="Details" asp-route-id="@UserTracker.User?.Id">My Account</a>
                 </li>
               </ul>
               @*top-right navbar text if user isnt logged in*@

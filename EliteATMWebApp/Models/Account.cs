@@ -25,6 +25,6 @@ namespace EliteATMWebApp.Models
 
         [ForeignKey("UserId")]
         [InverseProperty("Accounts")]
-        public virtual User User { get; set; } = null!;
+        public virtual User? User { get; set; }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model EliteATMWebApp.Models.Account
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">My Account</h1>
+
+<hr />
+<div class="container" style="display: flex; justify-content:center; height: fit-content; padding-top: 30px;">
+    <div class="container border border-dark rounded" style="padding: 10px 20px; max-width: 500px;">
+            <div class="mb-3 row">
+                <label for="FirstName" class="col-sm-2 col-form-label"><strong>@Html.DisplayNameFor(m => m.Type)</strong></label>
+                <div class="col-sm-10">
+                    <input class="form-control" value="@Html.DisplayFor(m => m.Type)" readonly/>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="LastName" class="col-sm-2 col-form-label"><strong>@Html.DisplayNameFor(m => m.Balance)</strong></label>
+                <div class="col-sm-10">
+                    <input class="form-control" value="$ @Html.DisplayFor(m => m.Balance)" readonly/>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="FirstName" class="col-sm-2 col-form-label"><strong>@Html.DisplayNameFor(m => m.Currency)</strong></label>
+                <div class="col-sm-10">
+                    <input class="form-control" value="@Html.DisplayFor(m => m.Currency)" readonly/>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="LastName" class="col-sm-2 col-form-label"><strong>@Html.DisplayNameFor(m => m.User)</strong></label>
+                <div class="col-sm-10">
+                    <input class="form-control" value="@Html.DisplayFor(m => m.UserId)" readonly/>
+                </div>
+            </div>
+            <div class="accountButtonWrap">
+                <div class="form-group accountBtns">
+                    <input type="button" value="Deposit" class="btn btn-primary" />
+                </div>
+                <div class="form-group accountBtns">
+                    <input type="button" value="Withdraw" class="btn btn-primary" />
+                </div>
+            </div>
+                <div class="container" style="max-width: 500px; display: flex; justify-content: center;">
+                    <a asp-action="Edit" class="badge bg-info text-decoration-none" asp-route-id="@Model?.AccountId">Edit Account Info</a> 
+                     <a asp-action="Index" class="badge bg-info text-decoration-none" style="@(UserTracker.User?.Id == 1 ? "visibility: visible;" : "display: none;") margin-left: 5px;">Back to List</a>
+              </div>
+    </div>
+</div>
+

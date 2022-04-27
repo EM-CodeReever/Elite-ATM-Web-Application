@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EliteATMWebApp.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+<h1>Manage Accounts</h1>
+
+<p>
+    <a asp-action="Create" class="badge bg-info text-decoration-none">Create New</a>
+     <a asp-controller="Users" asp-action="Index" class="badge bg-info text-decoration-none">View all user accounts</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Currency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                <a asp-action="Edit" class="badge bg-info text-decoration-none" asp-route-id="@item.AccountId">Edit</a> |
+                <a asp-action="Details" class="badge bg-info text-decoration-none" asp-route-id="@item.UserId">Details</a> |
+                <a asp-action="Delete" class="badge bg-info text-decoration-none" asp-route-id="@item.AccountId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

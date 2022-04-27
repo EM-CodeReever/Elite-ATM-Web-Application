@@ -16,7 +16,7 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold fade-in-right">Elite ATM Online Banking Platform </h1>
         <p class="col-md-6 fs-4">Welcome to online platfor for the Elite ATM Banking Service, now you can have 24/7 access to your funds for withdrawl or deposit straight from the web!</p>
-        <button class="btn btn-primary btn-lg" type="button">Go to Account</button>
+        <button class="btn btn-primary btn-lg" type="button" onclick="location.href='@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))'">Go to Account</button>
       </div>
     </div>
     <div class="container-xl" style="padding: 20px;">
@@ -61,7 +61,7 @@
               </button>
             </h2>
             <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush">
-              <div class="accordion-body"><s>No Dummy</s> No. For security reasons, you must enroll in Online Banking to access your account information online.</div>
+              <div class="accordion-body">No. For security reasons, you must enroll in Online Banking to access your account information online.</div>
             </div>
           </div>
         </div>
@@ -86,14 +86,14 @@
             <h1 class="display-3 fs-3 fw-bold text-center">Getting Started</h1>
             <p class="col-md-12 fs-4 text-center">Ready to start banking with us? See our various options below and choose one thats right for you</p>
         </div>
-
+        
     <div class="container-xl" style="display:flex; justify-content:space-evenly; padding: 20px;">
         <div class="card">
           <img src="~/Images/Business.jpg" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title bg-success">Business</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Open</a>
+            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary">Open</a>
           </div>
         </div>
         <div class="card">
@@ -101,7 +101,7 @@
           <div class="card-body">
             <h5 class="card-title bg-info">Chequings</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Open</a>
+            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary">Open</a>
           </div>
         </div>
          <div class="card">
@@ -109,7 +109,7 @@
           <div class="card-body">
             <h5 class="card-title bg-warning">Savings</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Open</a>
+            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary">Open</a>
           </div>
         </div>
     </div>

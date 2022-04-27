@@ -1,0 +1,64 @@
+﻿@model EliteATMWebApp.Models.Account
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Account</h4>
+<hr />
+@using (Html.BeginForm("Edit", "Accounts"))
+{
+<div class="container" style="display: flex; justify-content:center; height: fit-content;">
+    <div class="col-md-4 border border-dark rounded" style="padding: 10px 20px;">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AccountId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Balance" />
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <select asp-for="Type" class="form-select" aria-label="@Model.Type">
+                  <option hidden selected>@Model.Type</option>
+                  <option value="Business">Business</option>
+                  <option value="Savings">Savings</option>
+                  <option value="Chequing">Chequing</option>
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Currency" class="control-label"></label>
+                <select asp-for="Currency" class="form-select" aria-label="@Model.Currency">
+                  <option hidden selected>@Model.Currency</option>
+                  <option value="JMD">JMD</option>
+                  <option value="USD">USD</option>
+                  <option value="CAD">CAD</option>
+                </select>
+                <span asp-validation-for="Currency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" readonly/>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="accountButtonWrap">
+                    <input type="submit" value="Save" class="btn btn-primary accountBtns" />
+                    <input type="button" value="Delete" class="btn btn-danger accountBtns" onclick="location.href='@Url.Action("Delete", "Accounts", new { id = Model.AccountId})'"/>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+}*@
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+}

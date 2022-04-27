@@ -34,7 +34,9 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Password)
         </dd>
+        
     </dl>
-    <input onclick="location.href='@Url.Action("Edit", "Users", new { id = UserTracker.User?.Id})'" type="button" value="Edit" class="btn btn-primary" />
+    <a asp-action="Edit" class="badge bg-info text-decoration-none" asp-route-id="@UserTracker.User?.Id">Edit User Info</a> 
+    <a asp-action="Index" class="badge bg-info text-decoration-none" style="@(UserTracker.User?.Id == 1 ? "visibility: visible;" : "display: none;")">Back to List</a>
 </div>
 
