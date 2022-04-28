@@ -15,7 +15,7 @@
     <div class="p-5 container-fluid bg-light rounded-5 homeBG">
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold fade-in-right">Elite ATM Online Banking Platform </h1>
-        <p class="col-md-6 fs-4">Welcome to online platfor for the Elite ATM Banking Service, now you can have 24/7 access to your funds for withdrawl or deposit straight from the web!</p>
+        <p class="col-md-6 fs-4">Welcome to the online platform for the Elite ATM Banking Service, now you can have 24/7 access to your funds for withdraw and deposit straight from the web!</p>
         <button class="btn btn-primary btn-lg" type="button" onclick="location.href='@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))'">Go to Account</button>
       </div>
     </div>
@@ -93,7 +93,7 @@
           <div class="card-body">
             <h5 class="card-title bg-success">Business</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary">Open</a>
+            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary" style="float: right;">Open</a>
           </div>
         </div>
         <div class="card">
@@ -101,7 +101,7 @@
           <div class="card-body">
             <h5 class="card-title bg-info">Chequings</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary">Open</a>
+            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary" style="float: right;">Open</a>
           </div>
         </div>
          <div class="card">
@@ -109,7 +109,7 @@
           <div class="card-body">
             <h5 class="card-title bg-warning">Savings</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary">Open</a>
+            <a href="@(UserTracker.User == null ? Url.Action("Login", "Home") : Url.Action("Details", "Accounts", new { id = UserTracker.User.Id}))" class="btn btn-primary" style="float: right;">Open</a>
           </div>
         </div>
     </div>
